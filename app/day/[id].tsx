@@ -108,25 +108,36 @@ export default function DayScreen() {
     cargarEjercicios();
   }, [id]);
 
+  // --- FILTRO DE GUARDADO ---
+  // Esta función agarra cualquier lista, le arranca la imagen y guarda solo id y nombre
+  const guardarListaLimpia = async (nuevaLista: any[]) => {
+    const listaLimpia = nuevaLista.map(ej => ({
+      id: ej.id,
+      nombre: ej.nombre
+    }));
+    
+    setEjercicios(listaLimpia); // Actualizamos la pantalla
+    await AsyncStorage.setItem(storageKey, JSON.stringify(listaLimpia)); // Guardamos en disco
+  };
+  
   const confirmarQuitar = (ejercicio: any) => {
     Alert.alert("Quitar Ejercicio", `¿Querés sacar ${ejercicio.nombre} de esta rutina?`, [
       { text: "Cancelar", style: "cancel" },
       { 
         text: "Quitar", style: "destructive", 
         onPress: async () => {
-          const nuevaLista = ejercicios.filter(e => e.id !== ejercicio.id);
-          setEjercicios(nuevaLista);
-          await AsyncStorage.setItem(storageKey, JSON.stringify(nuevaLista));
+              const nuevaLista = ejercicios.filter(e => e.id !== ejercicio.id);
+              guardarListaLimpia(nuevaLista); // Usamos el filtro
         }
       }
     ]);
   };
 
-  const agregarEjercicio = async () => {
+const agregarEjercicio = () => {
     if (!ejercicioSeleccionado) return;
     const nuevaLista = [...ejercicios, ejercicioSeleccionado];
-    setEjercicios(nuevaLista);
-    await AsyncStorage.setItem(storageKey, JSON.stringify(nuevaLista));
+    guardarListaLimpia(nuevaLista); // Usamos el filtro
+    
     setEjercicioSeleccionado(null);
     setModalVisible(false);
   };
@@ -181,9 +192,8 @@ export default function DayScreen() {
       <DraggableFlatList
         data={ejercicios}
         onDragEnd={async ({ data }) => {
-          // Acá se guardan los datos en su nuevo orden cuando soltás la tarjeta
-          setEjercicios(data);
-          await AsyncStorage.setItem(storageKey, JSON.stringify(data));
+          // Cuando soltás la tarjeta, pasa por el filtro antes de guardarse
+          guardarListaLimpia(data);
         }}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
