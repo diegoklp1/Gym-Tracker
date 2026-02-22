@@ -14,7 +14,13 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>Mi Rutina</Text>
+      {/* NUEVO ENCABEZADO CON BOTÓN DE CALENDARIO */}
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerTitle}>Rutina</Text>
+        <TouchableOpacity onPress={() => router.push('./calendar')} style={styles.calendarButton}>
+          <Text style={styles.calendarIcon}>📅</Text>
+        </TouchableOpacity>
+      </View>
       
       <FlatList
         data={RUTINAS}
@@ -37,8 +43,11 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  headerContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24, marginBottom: 20 },
+  calendarButton: { backgroundColor: '#1E1E1E', padding: 12, borderRadius: 12, borderWidth: 1, borderColor: '#333' },
+  calendarIcon: { fontSize: 20 },
   container: { flex: 1, backgroundColor: '#0A0A0A', paddingTop: 60 },
-  headerTitle: { fontSize: 32, fontWeight: '800', color: '#FFF', paddingHorizontal: 24, marginBottom: 20, letterSpacing: 1 },
+  headerTitle: { fontSize: 32, fontWeight: '800', color: '#FFF',letterSpacing: 1 },
   listContainer: { paddingHorizontal: 20 },
   card: { backgroundColor: '#171717', padding: 24, borderRadius: 16, marginBottom: 16, borderLeftWidth: 4, borderLeftColor: '#BB86FC' },
   cardTitle: { color: '#FFF', fontSize: 22, fontWeight: '700', marginBottom: 4 },
