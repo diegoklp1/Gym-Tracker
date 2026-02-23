@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+# 🏋️‍♂️ Mi Rutina - Gym Tracker App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Una aplicación móvil minimalista y offline-first desarrollada en **React Native (Expo)** para registrar, analizar y optimizar rutinas de entrenamiento en el gimnasio. Diseñada enfocándose en la experiencia de usuario, la velocidad y la soberanía de los datos.
 
-## Get started
+## 🚀 Características Principales
 
-1. Install dependencies
+* **📱 Offline-First & Privacidad:** Los datos se guardan exclusivamente en el dispositivo del usuario mediante `AsyncStorage`. Sin tiempos de carga, sin necesidad de conexión a internet en el gimnasio y sin recolección de datos en la nube.
+* **📊 Análisis de Progresión Real:** Gráficos interactivos que calculan automáticamente el **Volumen Total (Tonelaje)** de cada sesión (Kilos × Repeticiones) para visualizar la sobrecarga progresiva a lo largo del tiempo.
+* **🧩 Arquitectura Modular (Drag & Drop):** Catálogo inteligente de ejercicios dividido por grupos musculares. Los usuarios pueden agregar, quitar y reordenar (`react-native-draggable-flatlist`) los ejercicios de su rutina diaria con total libertad.
+* **🩸 Soporte para Drop Sets:** Lógica especializada para registrar series descendentes (Drop Sets) vinculándolas visual y matemáticamente a la serie principal sin romper la estructura de datos.
+* **📅 Calendario de Consistencia:** Tracking automático de asistencia que escanea el historial de la base de datos y pinta un mapa de calor mensual destacando los días entrenados y los días de descanso/falta.
+* **💾 Sistema de Backup (JSON):** Herramienta nativa para exportar e importar la base de datos completa en formato `.json` al sistema de archivos del celular, permitiendo migraciones seguras y respaldos en Google Drive.
 
+## 🛠️ Tecnologías Utilizadas
+
+* **Framework:** React Native + Expo (EAS Build)
+* **Lenguaje:** TypeScript / JavaScript
+* **Almacenamiento Local:** `@react-native-async-storage/async-storage`
+* **Navegación:** Expo Router (File-based routing)
+* **Gráficos:** `react-native-chart-kit`
+* **Gestos y Animaciones:** `react-native-reanimated` & `react-native-gesture-handler`
+* **Sistema de Archivos:** `expo-file-system`, `expo-sharing`, `expo-document-picker`
+
+## 📸 Capturas de Pantalla
+| Menú Principal | Ejercicios | Gráfico de Progreso | Calendario | Config |
+| :---: | :---: | :---: | :---: |:---: |
+| <img src="./assets/screenshots/inicio.png" width="400" /> | <img src="./assets/screenshots/ejercicios.png" width="400" /> | <img src="./assets/screenshots/lineup.png" width="400" /> | <img src="./assets/screenshots/calendario.png" width="400" /> | <img src="./assets/screenshots/calendario.png" width="400" /> |
+
+## ⚙️ Instalación y Uso Local
+
+Si querés clonar este proyecto y correrlo en tu máquina local:
+
+1. Cloná el repositorio:
    ```bash
+   git clone [https://github.com/TU_USUARIO/mi-rutina-app.git](https://github.com/TU_USUARIO/mi-rutina-app.git)
+   ```
+2. Instalá las dependencias:
+   ```bash
+   cd mi-rutina-app
    npm install
    ```
-
-2. Start the app
-
+3. Iniciá el servidor de desarrollo de Expo:
    ```bash
-   npx expo start
+   npx expo start -c
    ```
+4. Escaneá el código QR con la app **Expo Go** (Android/iOS) o presioná `a` para abrirlo en un emulador de Android.
+## 📦 Compilación (APK)
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+El proyecto está configurado para compilarse a través de **Expo Application Services (EAS)**. Para generar un archivo `.apk` instalable en dispositivos Android físicos:
 ```bash
-npm run reset-project
+   npm install -g eas-cli
+   eas login
+   eas build -p android --profile preview
 ```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+*Desarrollado con ☕ y código limpio por [Diego/Diegoklp1].*
