@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Mi Rutina - Gym Tracker App
+# 🏋️‍♂️ Gym Tracker App
 
 Una aplicación móvil minimalista y offline-first desarrollada en **React Native (Expo)** para registrar, analizar y optimizar rutinas de entrenamiento en el gimnasio. Diseñada enfocándose en la experiencia de usuario, la velocidad y la soberanía de los datos.
 
