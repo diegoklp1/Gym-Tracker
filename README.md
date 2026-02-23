@@ -24,7 +24,7 @@ Una aplicación móvil minimalista y offline-first desarrollada en **React Nativ
 ## 📸 Capturas de Pantalla
 | Menú Principal | Ejercicios | Gráfico de Progreso | Calendario | Config |
 | :---: | :---: | :---: | :---: |:---: |
-| <img src="./assets/screenshots/inicio.png" width="400" /> | <img src="./assets/screenshots/ejercicios.png" width="400" /> | <img src="./assets/screenshots/lineup.png" width="400" /> | <img src="./assets/screenshots/calendario.png" width="400" /> | <img src="./assets/screenshots/calendario.png" width="400" /> |
+| <img src="./assets/screenshots/inicio.png" width="400" /> | <img src="./assets/screenshots/ejercicios.png" width="400" /> | <img src="./assets/screenshots/lineup.png" width="400" /> | <img src="./assets/screenshots/calendario.png" width="400" /> | <img src="./assets/screenshots/config.png" width="400" /> |
 
 ## ⚙️ Instalación y Uso Local
 
